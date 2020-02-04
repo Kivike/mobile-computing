@@ -11,10 +11,10 @@ data class Reminder(
 )
 
 @Dao
-interface ReminderDao (
+interface ReminderDao {
     @Transaction @Insert
     fun insert(reminder: Reminder)
 
     @Query("SELECT * FROM reminders")
     fun getReminders(): List<Reminder>
-)
+}
