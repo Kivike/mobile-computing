@@ -39,13 +39,6 @@ class MainActivity : AppCompatActivity() {
                 fab_time.animate().translationY(0f)
             }
         }
-
-        val data = arrayOf("Oulu", "Helsinki", "Tampere")
-
-        val reminderAdapter = ReminderAdapter(applicationContext, data)
-        list.adapter = reminderAdapter
-
-
     }
 
     override fun onResume() {
@@ -66,7 +59,6 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     toast("No reminders yet")
                 }
-
             }
         }
     }

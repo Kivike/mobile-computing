@@ -1,5 +1,9 @@
 package fi.oulu.reminder2020
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.room.Room
@@ -39,6 +43,8 @@ class TimeActivity : AppCompatActivity() {
 
                     db.reminderDao().insert(reminder)
                     db.close()
+
+                    setAlarm(reminder.time!!, reminder.message)
                     finish()
                 }
             } else {
@@ -53,6 +59,20 @@ class TimeActivity : AppCompatActivity() {
     }
 
     private fun setAlarm(time: Long, message: String) {
+        val intent = Intent(this, ReminderReceiver::class.java)
+        intent.putExtra("message", message)
 
+        val pendingIntent = PendingIntent.getBroadcast(
+            this,
+            1,
+            intent,
+            PendingIntent.FLAG_ONE_SHOT
+        )
+        val manager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        manager.setExact(AlarmManager.RTC, time, pendingIntent)
+
+        runOnUiThread{
+            toast("Reminder is created")
+        }
     }
 }
