@@ -20,6 +20,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders = [ GOOGLE_MAPS_API_KEY:getApiKey() ]
     }
     buildTypes {
         release {
@@ -53,4 +54,10 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
+}
+
+def getApiKey() {
+    def Properties props = new Properties()
+    props.load(new FileInputStream(new File('secrets.properties')))
+    return props['GOOGLE_MAPS_API_KEY']
 }
