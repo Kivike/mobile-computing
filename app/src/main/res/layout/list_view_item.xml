@@ -7,6 +7,8 @@
         android:id="@+id/itemMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minHeight="40dp"
         android:layout_weight="1"
         android:text="Item Message" />
 
@@ -14,6 +16,8 @@
         android:id="@+id/itemTrigger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minHeight="40dp"
         android:layout_weight="1"
         android:text="Item Trigger" />
 </LinearLayout>

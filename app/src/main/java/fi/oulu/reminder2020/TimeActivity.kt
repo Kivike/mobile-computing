@@ -48,7 +48,7 @@ class TimeActivity : AppCompatActivity() {
                     finish()
                 }
             } else {
-                toast("Invalid reminder")
+                toast(getString(R.string.reminder_invalid))
             }
         }
     }
@@ -72,7 +72,7 @@ class TimeActivity : AppCompatActivity() {
         manager.setExact(AlarmManager.RTC, time, pendingIntent)
 
         runOnUiThread{
-            toast("Reminder is created")
+            toast(getString(R.string.reminder_created))
         }
     }
 }

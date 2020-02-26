@@ -67,7 +67,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 uid = null,
                 time = null,
                 location = String.format("%.3f,%.3f", selectedLocation.latitude, selectedLocation.longitude),
-                message = "test"
+                message = reminderText
             )
 
             doAsync {
@@ -78,6 +78,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 reminder.uid = uid
                 db.close()
                 createGeofence(selectedLocation, reminder, geofencingClient)
+                toast(getString(R.string.reminder_created))
             }
         }
     }

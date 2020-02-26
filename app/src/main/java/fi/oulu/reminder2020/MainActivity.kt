@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     list.adapter = adapter
                 } else {
                     list.adapter = null
-                    toast("No reminders yet")
+                    toast(getString(R.string.reminder_no_reminders))
                 }
             }
         }

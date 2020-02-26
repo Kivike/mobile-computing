@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MobileComputing</string>
     <string name="action_settings">Settings</string>
+    <string name="reminder_no_reminders">No reminders yet</string>
+    <string name="reminder_created">Reminder created</string>
+    <string name="reminder_invalid">Invalid reminder</string>
 </resources>
